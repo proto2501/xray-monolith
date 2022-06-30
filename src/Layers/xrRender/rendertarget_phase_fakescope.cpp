@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
-void CRenderTarget::phase_nightvision()
+//crookr
+void CRenderTarget::phase_fakescope()
 {
 	//Constants
 	u32 Offset = 0;
@@ -19,7 +20,7 @@ void CRenderTarget::phase_nightvision()
 	p0.set(0.5f / w, 0.5f / h);
 	p1.set((w + 0.5f) / w, (h + 0.5f) / h);
 #endif
-	
+
 	//////////////////////////////////////////////////////////////////////////
 	//Set MSAA/NonMSAA rendertarget
 #if defined(USE_DX10) || defined(USE_DX11)
@@ -41,12 +42,12 @@ void CRenderTarget::phase_nightvision()
 	RCache.Vertex.Unlock(4, g_combine->vb_stride);
 
 	//Set pass
-	RCache.set_Element(s_nightvision->E[ps_r2_nightvision]);
+	RCache.set_Element(s_fakescope->E[ps_r2_nightvision]);
 
 	//Set geometry
 	RCache.set_Geometry(g_combine);
 	RCache.Render(D3DPT_TRIANGLELIST, Offset, 0, 4, 0, 2);
-	
+
 #if defined(USE_DX10) || defined(USE_DX11)
 	HW.pContext->CopyResource(rt_Generic_0->pTexture->surface_get(), dest_rt->pTexture->surface_get());
 #endif

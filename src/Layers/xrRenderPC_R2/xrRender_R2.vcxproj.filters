@@ -672,6 +672,7 @@
     <ClInclude Include="blender_smaa.h">
       <Filter>Shading templates</Filter>
     </ClInclude>
+    <ClInclude Include="blender_fakescope.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -1229,5 +1230,7 @@
     <ClCompile Include="..\xrRender\rendertarget_phase_smaa.cpp">
       <Filter>Core_Target</Filter>
     </ClCompile>
+    <ClCompile Include="blender_fakescope.cpp" />
+    <ClCompile Include="..\xrRender\rendertarget_phase_fakescope.cpp" />
   </ItemGroup>
 </Project>

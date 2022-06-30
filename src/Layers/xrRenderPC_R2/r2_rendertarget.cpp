@@ -21,6 +21,7 @@
 #include "blender_dof.h"
 #include "blender_pp_bloom.h"
 #include "blender_nightvision.h"
+#include "blender_fakescope.h"
 #include "blender_lut.h"
 
 #include "../xrRender/dxRenderDeviceRender.h"
@@ -247,7 +248,7 @@ CRenderTarget::CRenderTarget()
 	b_gasmask_drops = xr_new<CBlender_gasmask_drops>();
 	b_gasmask_dudv = xr_new<CBlender_gasmask_dudv>();
 	b_nightvision = xr_new<CBlender_nightvision>();
-	b_fakescope = xr_new<CBlender_fakescope>(); //crookr
+	b_fakescope = xr_new<CBlender_fakescope>();
 	b_lut = xr_new<CBlender_lut>();
 	b_smaa = xr_new<CBlender_smaa>();
 
