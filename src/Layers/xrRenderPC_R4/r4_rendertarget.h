@@ -58,7 +58,7 @@ public:
 	IBlender* b_gasmask_drops;
 	IBlender* b_gasmask_dudv;
 	IBlender* b_nightvision;
-	IBlender* b_fakescope; //crookr
+	IBlender* b_scope_view; //crookr
 	IBlender* b_lut;
 	IBlender* b_smaa;
 	// compute shader for hdao
@@ -97,7 +97,7 @@ public:
 	ref_rt rt_secondVP;	// 32bit		(r,g,b,a) --//#SM+#-- +SecondVP+
 
 
-	ref_rt rt_fakescope;	// crookr fakescope
+	ref_rt rt_scope_view;	// crookr fakescope
 
 	ref_rt rt_dof;
 	ref_rt rt_ui_pda;
@@ -179,7 +179,7 @@ private:
 	ref_shader s_gasmask_drops;
 	ref_shader s_gasmask_dudv;
 	ref_shader s_nightvision;
-	ref_shader s_fakescope; //crookr
+	ref_shader s_scope_view; //crookr
 	ref_shader s_smaa;
 
 	ref_shader s_lut;
@@ -305,7 +305,7 @@ public:
 	void phase_gasmask_drops();
 	void phase_gasmask_dudv();
 	void phase_nightvision();
-	void phase_fakescope(); //crookr
+	void phase_scope_view();
 	void phase_lut();		
 	void phase_smaa();
 	void phase_scene_prepare();

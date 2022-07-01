@@ -59,10 +59,10 @@ function updateScope(enabled)
 			end
 		
 			-- get radius
-			if scopeName and scopeRadii.scopeRadii[scopeName] then
+			if scopeName and scope_radii.scope_radii[scopeName] then
 			
 				-- apply radius
-				exec_console_cmd("scope_radius " .. scopeRadii.scopeRadii[scopeName])
+				exec_console_cmd("scope_radius " .. scope_radii.scope_radii[scopeName])
 				
 				-- adjust zoom for factor compensation
 				local cweapon = wpn:cast_Weapon()

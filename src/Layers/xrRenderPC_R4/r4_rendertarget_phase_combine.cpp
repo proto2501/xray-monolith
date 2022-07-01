@@ -396,8 +396,8 @@ void CRenderTarget::phase_combine()
 	if(ps_r2_nightvision > 0)
 		phase_nightvision();
 	
-	if (ps_r2_fakescope > 0)
-		phase_fakescope(); //crookr
+	if (ps_r2_scope_view > 0)
+		phase_scope_view(); //crookr
 
     //SMAA
 	if (ps_smaa_quality)

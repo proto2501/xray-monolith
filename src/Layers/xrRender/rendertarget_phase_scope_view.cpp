@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 //crookr
-void CRenderTarget::phase_fakescope()
+void CRenderTarget::phase_scope_view()
 {
 	//Constants
 	u32 Offset = 0;
@@ -42,7 +42,7 @@ void CRenderTarget::phase_fakescope()
 	RCache.Vertex.Unlock(4, g_combine->vb_stride);
 
 	//Set pass
-	RCache.set_Element(s_fakescope->E[ps_r2_nightvision]);
+	RCache.set_Element(s_scope_view->E[ps_r2_nightvision]);
 
 	//Set geometry
 	RCache.set_Geometry(g_combine);

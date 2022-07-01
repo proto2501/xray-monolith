@@ -23,7 +23,7 @@
 #include "blender_dof.h"
 #include "blender_pp_bloom.h"
 #include "blender_nightvision.h"
-#include "blender_fakescope.h"
+#include "blender_scope_view.h"
 #include "blender_lut.h"
 
 #include "../xrRender/dxRenderDeviceRender.h"
@@ -351,7 +351,7 @@ CRenderTarget::CRenderTarget()
 	b_gasmask_drops = xr_new<CBlender_gasmask_drops>();
 	b_gasmask_dudv = xr_new<CBlender_gasmask_dudv>();
 	b_nightvision = xr_new<CBlender_nightvision>();
-	b_fakescope = xr_new<CBlender_fakescope>();
+	b_scope_view = xr_new<CBlender_scope_view>();
 	b_lut = xr_new<CBlender_lut>();
 	b_smaa = xr_new<CBlender_smaa>();
 
@@ -437,7 +437,7 @@ CRenderTarget::CRenderTarget()
 		rt_Generic.create(r2_RT_generic, w, h, D3DFMT_A8R8G8B8, 1);
 
 
-		rt_fakescope.create(r2_RT_scopert, w, h, D3DFMT_A8R8G8B8, 1); //crookr fakescope
+		rt_scope_view.create(r2_RT_scopert, w, h, D3DFMT_A8R8G8B8, 1); //crookr fakescope
 
         if (RImplementation.o.dx10_msaa)
             rt_Generic_temp.create("$user$generic_temp", w, h, D3DFMT_A8R8G8B8, SampleCount);
@@ -485,7 +485,7 @@ CRenderTarget::CRenderTarget()
 	s_gasmask_dudv.create(b_gasmask_dudv, "r2\\gasmask_dudv");
 	s_nightvision.create(b_nightvision, "r2\\nightvision");
 
-	s_fakescope.create(b_fakescope, "r2\\fakescope"); //crookr
+	s_scope_view.create(b_scope_view, "r2\\scope_view"); //crookr
 
 	s_lut.create(b_lut, "r2\\lut");	
 	// OCCLUSION
@@ -1164,7 +1164,7 @@ CRenderTarget::~CRenderTarget()
 	xr_delete(b_gasmask_drops);
 	xr_delete(b_gasmask_dudv);
 	xr_delete(b_nightvision);
-	xr_delete(b_fakescope);
+	xr_delete(b_scope_view);
 	xr_delete(b_lut);	
 	xr_delete(b_smaa);
 

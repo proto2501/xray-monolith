@@ -1,0 +1,33 @@
+#include "common.h"
+
+Texture2D s_scope;
+uniform float4 m_hud_params;
+float4 eye_direction_lerp;
+float4 eye_position_lerp;
+float4 fakescope_params1; // power, inner blur, outer blur, brightness
+float4 fakescope_params2; // chroma abber, fog attack(aim), fog attack(move), fog max travel
+float4 fakescope_params3; // radius, relative fog radius, fog sharpness, scope sway amount
+
+float4 main(p_screen I,  float4 pos2d : SV_POSITION) : SV_Target
+{
+    float aspectRatio = screen_res.x / screen_res.y;
+    
+    float2 coord;
+    coord.x = (I.tc0.x - 0.5) * aspectRatio;
+    coord.y = I.tc0.y - 0.5;
+    float dist = distance(coord, float2(0, 0));
+    
+    float2 texCoord;
+    if (dist < fakescope_params3.x / 2)
+    {
+        texCoord.x = (coord.x * fakescope_params1.x) / aspectRatio + 0.5;
+        texCoord.y = coord.y * fakescope_params1.x + 0.5;
+    }
+    else
+    {
+        texCoord = I.tc0;
+    }
+    
+    float3 colour = s_image.Sample(smp_base, texCoord);
+    return float4(colour, 1.0);
+} 

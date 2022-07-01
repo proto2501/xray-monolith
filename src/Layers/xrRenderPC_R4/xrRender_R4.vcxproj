@@ -380,7 +380,7 @@
     <ClInclude Include="blender_light_spot.h" />
     <ClInclude Include="blender_luminance.h" />
     <ClInclude Include="blender_pp_bloom.h" />
-    <ClInclude Include="blender_fakescope.h" />
+    <ClInclude Include="blender_scope_view.h" />
     <ClInclude Include="blender_smaa.h" />
     <ClInclude Include="blender_ssao.h" />
     <ClInclude Include="blender_ss_sunshafts.h" />
@@ -509,7 +509,7 @@
     <ClCompile Include="..\xrRender\PSLibrary.cpp" />
     <ClCompile Include="..\xrRender\rendertarget_phase_blur.cpp" />
     <ClCompile Include="..\xrRender\rendertarget_phase_dof.cpp" />
-    <ClCompile Include="..\xrRender\rendertarget_phase_fakescope.cpp" />
+    <ClCompile Include="..\xrRender\rendertarget_phase_scope_view.cpp" />
     <ClCompile Include="..\xrRender\rendertarget_phase_lut.cpp" />
     <ClCompile Include="..\xrRender\rendertarget_phase_nightvision.cpp" />
     <ClCompile Include="..\xrRender\rendertarget_phase_gasmask_drops.cpp" />
@@ -574,7 +574,7 @@
     <ClCompile Include="blender_light_spot.cpp" />
     <ClCompile Include="blender_luminance.cpp" />
     <ClCompile Include="blender_pp_bloom.cpp" />
-    <ClCompile Include="blender_fakescope.cpp" />
+    <ClCompile Include="blender_scope_view.cpp" />
     <ClCompile Include="blender_smaa.cpp" />
     <ClCompile Include="blender_ssao.cpp" />
     <ClCompile Include="blender_ss_sunshafts.cpp" />

@@ -1,17 +1,17 @@
 #include "stdafx.h"
 
-#include "blender_fakescope.h"
+#include "blender_scope_view.h"
 
-CBlender_fakescope::CBlender_fakescope()
+CBlender_scope_view::CBlender_scope_view()
 {
     description.CLS = 0;
 }
 
-void CBlender_fakescope::Compile(CBlender_Compile& C)
+void CBlender_scope_view::Compile(CBlender_Compile& C)
 {
 	IBlender::Compile(C);
 
-	C.r_Pass("stub_screen_space", "fakescope", FALSE, FALSE, FALSE);
+	C.r_Pass("stub_screen_space", "scope_view", FALSE, FALSE, FALSE);
 	C.r_dx10Texture("s_position", r2_RT_P);
 	C.r_dx10Texture("s_image", r2_RT_generic0);
 	C.r_dx10Texture("s_bloom_new", r2_RT_pp_bloom);
