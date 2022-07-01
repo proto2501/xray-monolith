@@ -864,21 +864,11 @@ Ivector4 g_crosshair_color_temp;
 float g_freelook_z_offset;
 float g_ironsights_factor = 1.25f;
 
-// crookr fake scope params (sorry)
-float scope_fog_interp = 0.15f;
-float scope_fog_travel = 0.25f;
-float scope_fog_attack = 0.66f;
-float scope_fog_mattack = 0.25f;
-//float scope_drift_amount = 1.f;
-float scope_ca = 0.0066f;
-float scope_outerblur = 1.0f;
-float scope_innerblur = 0.2f;
-float scope_scrollpower = 0.66f;
-float scope_brightness = 1.0f;
-float scope_radius = 0.f;
-float scope_fog_radius = 1.25f;
-float scope_fog_sharp = 4.0f;
-int scope_2dtexactive = 0.0;
+// The size 
+
+float scope_view_size = 0.0f;
+float scope_view_zoom_factor = 1.0f;
+int scope_2dtexactive = 0;
 
 void CCC_Register()
 {
@@ -1040,22 +1030,8 @@ void CCC_Register()
 
 	CMD4(CCC_Float, "g_ironsights_zoom_factor", &g_ironsights_factor, 1.f, 2.f);
 	
-	// - CrookR
-	CMD2(CCC_Float, "scope_blur_outer", &scope_outerblur);
-	CMD2(CCC_Float, "scope_blur_inner", &scope_innerblur);
-	CMD2(CCC_Float, "scope_factor", &scope_scrollpower);
-	CMD2(CCC_Float, "scope_brightness", &scope_brightness);
-
-	CMD2(CCC_Float, "scope_fog_interp", &scope_fog_interp);
-	CMD4(CCC_Float, "scope_fog_travel", &scope_fog_travel, 0.f, 5.f);
-	CMD4(CCC_Float, "scope_fog_swayAim", &scope_fog_attack, -999.f, 999.f);
-	CMD4(CCC_Float, "scope_fog_swayMove", &scope_fog_mattack, -999.f, 999.f);
-	//CMD4(CCC_Float, "scope_drift_amount", &scope_drift_amount, -999.f, 999.f);
-
-	CMD2(CCC_Float, "scope_ca", &scope_ca);
-	CMD4(CCC_Float, "scope_radius", &scope_radius, 0, 2);
-	CMD4(CCC_Float, "scope_fog_radius", &scope_fog_radius, 0, 1000);
-	CMD4(CCC_Float, "scope_fog_sharp", &scope_fog_sharp, 0, 1000);
+	CMD4(CCC_Float, "scope_view_size", &scope_view_size, 0.f, 1.f);
+	CMD4(CCC_Float, "scope_view_zoom_factor", &scope_view_zoom_factor, 0.f, 1000.f);
 	CMD2(CCC_Integer, "scope_2dtexactive", &scope_2dtexactive);
 
 #ifdef DEBUG

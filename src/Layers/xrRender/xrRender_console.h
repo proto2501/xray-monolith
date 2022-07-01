@@ -140,7 +140,7 @@ extern ECORE_API int ps_r2_qsync;
 extern ECORE_API Fvector4 ps_r2_mask_control; // r2-only
 extern ECORE_API Fvector ps_r2_drops_control; // r2-only
 extern ECORE_API int ps_r2_nightvision;
-extern ECORE_API int ps_r2_scope_view; //crookr
+extern ECORE_API int ps_r2_scope_view;
 extern ECORE_API float ps_r2_ss_sunshafts_length;
 extern ECORE_API float ps_r2_ss_sunshafts_radius;
 extern u32 ps_sunshafts_mode;

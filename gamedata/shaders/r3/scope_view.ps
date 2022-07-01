@@ -1,12 +1,6 @@
 #include "common.h"
 
-Texture2D s_scope;
-uniform float4 m_hud_params;
-float4 eye_direction_lerp;
-float4 eye_position_lerp;
-float4 fakescope_params1; // power, inner blur, outer blur, brightness
-float4 fakescope_params2; // chroma abber, fog attack(aim), fog attack(move), fog max travel
-float4 fakescope_params3; // radius, relative fog radius, fog sharpness, scope sway amount
+float4 scope_view_params; // size, magnification
 
 float4 main(p_screen I,  float4 pos2d : SV_POSITION) : SV_Target
 {
@@ -18,10 +12,10 @@ float4 main(p_screen I,  float4 pos2d : SV_POSITION) : SV_Target
     float dist = distance(coord, float2(0, 0));
     
     float2 texCoord;
-    if (dist < 0.5)
+    if (dist < scope_view_params.x / 2)
     {
-        texCoord.x = (coord.x * fakescope_params1.x) / aspectRatio + 0.5;
-        texCoord.y = coord.y * fakescope_params1.x + 0.5;
+        texCoord.x = (coord.x / scope_view_params.y) / aspectRatio + 0.5;
+        texCoord.y = coord.y / scope_view_params.y + 0.5;
     }
     else
     {
