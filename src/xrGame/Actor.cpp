@@ -1050,11 +1050,11 @@ extern float g_ironsights_factor;
 
 float CActor::currentFOV()
 {
+#if 0
 	if (!psHUD_Flags.is(HUD_WEAPON | HUD_WEAPON_RT | HUD_WEAPON_RT2))
 		return g_fov;
 
 	CWeapon* pWeapon = smart_cast<CWeapon*>(inventory().ActiveItem());
-
 	if (eacFirstEye == cam_active && pWeapon &&
 		pWeapon->IsZoomed() &&
 		(!pWeapon->ZoomTexture() || (!pWeapon->IsRotatingToZoom() && pWeapon->ZoomTexture()))
@@ -1069,6 +1069,9 @@ float CActor::currentFOV()
 	{
 		return g_fov;
 	}
+#else
+	return g_fov;
+#endif
 }
 
 #include "UI\UIInventoryUtilities.h"
