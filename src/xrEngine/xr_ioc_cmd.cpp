@@ -866,6 +866,8 @@ float g_ironsights_factor = 1.25f;
 
 // The size 
 
+float scope_view_center_x = 0.5f;
+float scope_view_center_y = 0.5f;
 float scope_view_size = 0.0f;
 float scope_view_zoom_factor = 1.0f;
 int scope_2dtexactive = 0;
@@ -1030,6 +1032,8 @@ void CCC_Register()
 
 	CMD4(CCC_Float, "g_ironsights_zoom_factor", &g_ironsights_factor, 1.f, 2.f);
 	
+	CMD4(CCC_Float, "scope_view_center_x", &scope_view_center_x, 0.f, 1.f);
+	CMD4(CCC_Float, "scope_view_center_y", &scope_view_center_y, 0.f, 1.f);
 	CMD4(CCC_Float, "scope_view_size", &scope_view_size, 0.f, 1.f);
 	CMD4(CCC_Float, "scope_view_zoom_factor", &scope_view_zoom_factor, 0.f, 1000.f);
 	CMD2(CCC_Integer, "scope_2dtexactive", &scope_2dtexactive);

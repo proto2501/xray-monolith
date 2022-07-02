@@ -283,13 +283,15 @@ class cl_eye_N : public R_constant_setup
 
 static cl_eye_N binder_eye_N;
 
+extern float scope_view_center_x;
+extern float scope_view_center_y;
 extern float scope_view_size;
 extern float scope_view_zoom_factor;
 class cl_scope_view_params : public R_constant_setup
 {
 	virtual void setup(R_constant* C)
 	{
-		RCache.set_c(C, scope_view_size, scope_view_zoom_factor, 0.0f, 0.0f);
+		RCache.set_c(C, scope_view_center_x, scope_view_center_y, scope_view_size, scope_view_zoom_factor);
 	}
 };
 static cl_scope_view_params binder_scope_view_params;

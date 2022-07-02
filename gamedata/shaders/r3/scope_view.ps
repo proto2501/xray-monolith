@@ -1,21 +1,25 @@
 #include "common.h"
 
-float4 scope_view_params; // size, magnification
+float4 scope_view_params; // x, y, size, magnification
 
 float4 main(p_screen I,  float4 pos2d : SV_POSITION) : SV_Target
 {
+    float2 center = float2(scope_view_params.x, scope_view_params.y);
+    float size = scope_view_params.z;
+    float magnification = scope_view_params.w;
+
     float aspectRatio = screen_res.x / screen_res.y;
     
     float2 coord;
     coord.x = (I.tc0.x - 0.5) * aspectRatio;
     coord.y = I.tc0.y - 0.5;
-    float dist = distance(coord, float2(0, 0));
+    float dist = distance(coord, center - float2(0.5, 0.5));
     
     float2 texCoord;
-    if (dist < scope_view_params.x / 2)
+    if (dist < size / 2)
     {
-        texCoord.x = (coord.x / scope_view_params.y) / aspectRatio + 0.5;
-        texCoord.y = coord.y / scope_view_params.y + 0.5;
+        texCoord.x = (coord.x / magnification) / aspectRatio + 0.5;
+        texCoord.y = coord.y / magnification + 0.5;
     }
     else
     {

@@ -10,18 +10,24 @@ function actor_on_weapon_zoom_in()
     local magnification = eye_fov / scope_fov
 
 	exec_console_cmd("scope_2dtexactive " .. 1)
+    exec_console_cmd("scope_view_center_x " .. 0.5)
+    exec_console_cmd("scope_view_center_y " .. 0.5)
     exec_console_cmd("scope_view_size " .. 1.0)
 	exec_console_cmd("scope_view_zoom_factor " .. magnification)
 end
 
 function actor_on_weapon_zoom_out()
 	exec_console_cmd("scope_2dtexactive " .. 0)
+    exec_console_cmd("scope_view_center_x " .. 0.5)
+    exec_console_cmd("scope_view_center_y " .. 0.5)
     exec_console_cmd("scope_view_size " .. 0.0)
 	exec_console_cmd("scope_view_zoom_factor " .. 1.0)
 end
 
 function actor_on_before_death(whoID,flags)
 	exec_console_cmd("scope_view_zoom_factor " .. 1.0)
+    exec_console_cmd("scope_view_center_x " .. 0.5)
+    exec_console_cmd("scope_view_center_y " .. 0.5)
     exec_console_cmd("scope_view_size " .. 0.0)
 	exec_console_cmd("scope_2dtexactive " .. 0)
 end
